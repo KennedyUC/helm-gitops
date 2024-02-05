@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata: 
+  name: skaffold-deployment
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+  - image: fastapi-app
+    context: fastapi-app
+    docker:
+      dockerfile: Dockerfile
+    sync:
+      infer:
+      - '**/*'
